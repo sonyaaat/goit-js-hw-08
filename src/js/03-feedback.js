@@ -17,9 +17,18 @@ reNew();
 
 function onFormSubmit(evt)
 {
+const { elements: {email,message}}=event.currentTarget;
 evt.preventDefault();
-evt.target.reset();
-localStorage.removeItem(STATE);
+if(email.value==='' || message.value==='')
+{
+   alert("Всі поля мають бути заповнені")
+}
+else{
+   evt.target.reset();
+   localStorage.removeItem(STATE);
+   data={};
+}
+
 }
 
 function onFormInput(evt)
